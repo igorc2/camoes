@@ -1,0 +1,104 @@
+
+:root {
+  --highlight-background: #1e90ff;
+  --white: #ffffff;
+  --border-color: #003D4A;
+  --background-color: #ffffff;
+  --text-color: #00262B;
+  --border-color-pressed: #003D4A;
+  --highlight-background-pressed: #003D4A;
+  --highlight-background: #003D4A;
+  --field-background: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.react-aria-Switch {
+  display: flex;
+  align-items: center;
+  gap: 0.571rem;
+  font-size: 1.143rem;
+  color: var(--text-color);
+  forced-color-adjust: none;
+
+  .indicator {
+    cursor: pointer;
+    width: 52px;
+    height: 32px;
+    border: 2px solid var(--border-color);
+    background: var(--background-color);
+    border-radius: 1.143rem;
+    transition: all 250ms;
+
+    .button {
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin: 6px;
+      background: var(--highlight-background);
+      border-radius: 16px;
+      transition: all 250ms;
+      border: 2px solid var(--border-color);
+    }
+
+    &:hover .button, &:focus .button  {
+      box-shadow: 0px 0px 0px 12px rgba(0,38,43,0.2);
+    }
+
+    &:hover, &:active, &:focus, :focus-visible, :focus-within  {
+      opacity: .9;
+    }
+  }
+
+  &[data-pressed] .indicator {
+    border-color: --border-color-pressed;
+    opacity: .8;
+    
+    .button {
+      margin: -1px;
+      width: 30px;
+      height: 30px;
+      background: var(--highlight-background-pressed);
+      box-shadow: 0px 0px 0px 6px rgba(0,38,43,0.2);
+    }
+  }
+
+  &[data-selected] {
+    .indicator {
+      border-color(--highlight-background);
+      background: var(--highlight-background);
+
+      &:hover .button, &:focus .button  {
+        box-shadow: 0px 0px 0px 6px rgba(0,38,43,0.2);
+      }
+      
+      .button {
+        &:hover .button, &:focus .button  {
+          border-color: --white;
+        }
+        width: 28px;
+        height: 28px;
+        margin: 0;
+        background: var(--field-background);
+        transform: translateX(calc(100% - 8px));
+      }
+    }
+
+    &[data-pressed] {
+      .indicator {
+        border-color: var(--highlight-background-pressed);
+        background: var(--highlight-background-pressed);
+        .button {
+          border-color: var(--white);
+        }
+      }
+    }
+  }
+
+  &[data-focus-visible] .indicator {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+  }
+}
