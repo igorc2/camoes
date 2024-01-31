@@ -6,7 +6,7 @@ import Switch from './Switch';
 
 
 const meta = {
-  title: "Example/MUI Base UI Switch coiso",
+  title: "Example/MUI Base UI Switch",
   component: Switch,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -25,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    disabled: true,
-    label: 'MUI Base UI switch component',
+    disabled: false,
+    label: "MUI Base UI switch component",
   },
 };

@@ -6,14 +6,13 @@ interface SwitchProps {
 }
 function Switch({ label } : SwitchProps ) {
   return (
-    <SwitchBase >
+    <SwitchBase>
       <div className="indicator">
         <div className="button" />
       </div>
-
-      { label }
+      {label}
     </SwitchBase>
-  )
+  );
 }
 
 export default Switch

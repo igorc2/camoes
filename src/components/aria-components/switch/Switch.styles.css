@@ -77,9 +77,9 @@
       .button {
         &:hover .button, &:focus .button  {
           border-color: --white;
-        }
-        width: 28px;
-        height: 28px;
+          }
+          width: 28px;
+          height: 28px;
         margin: 0;
         background: var(--field-background);
         transform: translateX(calc(100% - 8px));

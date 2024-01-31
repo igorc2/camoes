@@ -7,7 +7,7 @@ const brandColors = {
 };
 
 const colors = {
-  white: "fff"
+  white: "#fff"
 }
 
 // background: ${theme.palette.mode === 'dark' ? brandColors.blackPearl : brandColors.blackPearl};
@@ -23,10 +23,13 @@ export const Root = styled('span')(
 
   width: 52px;
   height: 32px;
-  border: 2px solid ${brandColors.warmBlack};
   background: ${colors.white};
   border-radius: 1.143rem;
   transition: all 250ms;
+
+  &:hover .${switchClasses.thumb} {
+    box-shadow: 0px 0px 0px 12px rgba(0,38,43,0.2);
+  }
 
   &.${switchClasses.disabled} {
     opacity: 0.4;
@@ -36,23 +39,29 @@ export const Root = styled('span')(
   & .${switchClasses.track} {
     box-sizing: border-box;
     background: ${colors.white};
-    border: 1px solid ${brandColors.warmBlack};
+    border: 2px solid ${brandColors.warmBlack};
     border-radius: 24px;
     display: block;
     height: 100%;
     width: 100%;
+
+    transition: all 250ms;
     position: absolute;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 120ms;
-    box-shadow: inset 0px 1px 1px ${
-      theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.05)'
-    };
   }
 
   &:hover .${switchClasses.track} {
-    background: ${brandColors.blackPearl};
+    background: ${colors.white};
     border-color: ${brandColors.warmBlack};
+  }
+
+  &:active .${switchClasses.thumb} {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    border-color: ${brandColors.warmBlack};
+    left: 1px;
+    top: 1px;
+    box-shadow: 0px 0px 0px 6px rgba(0,38,43,0.2);
   }
 
   &.${switchClasses.focusVisible} .${switchClasses.track} {
@@ -60,6 +69,9 @@ export const Root = styled('span')(
   }
 
   & .${switchClasses.thumb} {
+    
+    margin: 4px;
+      
     box-sizing: border-box;
     border: 1px solid ${brandColors.warmBlack};
     display: block;
@@ -68,26 +80,36 @@ export const Root = styled('span')(
     top: 4px;
     left: 4px;
     border-radius: 16px;
-    background-color: #FFF;
+    background-color: ${brandColors.warmBlack};
     position: relative;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 120ms;
-    box-shadow: 0px 1px 2px ${
-      theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.1)'
-    };
+    transition: all 250ms;
   }
 
   &.${switchClasses.checked} {
+    
     .${switchClasses.thumb} {
-      left: 18px;
-      background-color: #fff;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+      border: none;
+      left: 24px;
+      margin: 0;
+      background: ${colors.white};
+      width: 24px;
+      height: 24px;
+      box-shadow: 0px 0px 0px 8px rgba(0,38,43,0.2);
+    }
+
+    &:active .${switchClasses.thumb} {
+      left: 22px;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-color: 2px solid ${brandColors.warmBlack};
+      box-shadow: 0px 0px 0px 6px rgba(0,38,43,0.2);
+      top: 2px;
     }
 
     .${switchClasses.track} {
-      border: none;
-      background: ${colors.white};
+
+      background: ${brandColors.warmBlack};
     }
   }
 
@@ -106,5 +128,9 @@ export const Root = styled('span')(
     z-index: 1;
     margin: 0;
   }
+
+
+    
+
   `,
 );
